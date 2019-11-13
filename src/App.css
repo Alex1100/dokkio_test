@@ -1,22 +1,51 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  background-color: white;
+  width: 50%;
+  margin: 0 auto;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  margin-top: 2%;
+  margin-bottom: 5%;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+mark {
+  border-radius: 3px;
   color: white;
+  background-color: #b1d5e5;
+  font: 600 15px system-ui;
+  padding: 1px;
 }
 
-.App-link {
-  color: #09d3ac;
+span {
+  font: 400 11px system-ui;
+}
+
+.highlights {
+  height: auto;
+  text-align: left;
+  margin: 1%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: transparent;
+}
+
+.backdrop {
+  background-color: transparent;
+  height: 200px;
+  width: 90%;
+  margin: 0 auto;
+  z-index: 1;
+  overflow: auto;
+  pointer-events: none;
+  transition: transform 1s;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #c6aada;
 }

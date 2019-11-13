@@ -1,24 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { TextField } from './components';
 
 function App() {
+  const [mirrorText, setMirrorText] = useState('');
+  const [paragraphText, setParagraphText] = useState('');
+
+  const isPalindrome = (word) => {
+    if (word === word.split('').reverse().join('')) {
+      return true;
+    }
+
+    return false;
+  }
+
+  const applyHighlights = (text) => {
+    return text
+      .replace(/\n$/g, '\n\n')
+      .replace(/[A-Za-z].*?\b/g, '<mark>$&</mark>');
+  };
+
+  const handleTextUpdate = (e) => {
+    const updatedText = e.target.value.split(' ');
+
+    const result = updatedText.reduce((word, next) => {
+      if (isPalindrome(next.toLowerCase())) {
+        word += ` ${applyHighlights(next)}`;
+        return word;
+      } else {
+        word += ` <span style="color: black">${next}</span>`;
+        return word;
+      }
+    }, '');
+
+    setMirrorText(result)
+    setParagraphText(e.target.value);
+  };
+
+  const createMarkup = (html) => {
+    return { __html: html };
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Enter text and find out which words are Palindromes!</h1>
+      <div class="backdrop">
+        <div class="highlights" dangerouslySetInnerHTML={createMarkup(mirrorText)} />
+      </div>
+      <TextField
+        paragraphText={paragraphText}
+        handleTextUpdate={handleTextUpdate}
+        mirrorText={mirrorText}
+      />
     </div>
   );
 }

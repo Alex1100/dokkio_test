@@ -1,0 +1,21 @@
+.TextField {
+  background-color: #a5b2c0;
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.TextField > textarea {
+  display: inline;
+  font: 400 11px system-ui;
+  width: 90%;
+  height: 200px;
+  z-index: 0;
+  margin: 0;
+  border: solid 2px #8fbcd1;
+  resize: vertical;
+  word-wrap: break-word;
+  word-break: normal;
+}

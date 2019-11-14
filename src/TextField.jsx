@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/TextField.css';
+import './TextField.css';
 
 export const TextField = ({ paragraphText, handleTextUpdate }) => {
   return (

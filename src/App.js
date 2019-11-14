@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { TextField } from './components';
+import { TextField } from './TextField';
 
 function App() {
   const [mirrorText, setMirrorText] = useState('');
